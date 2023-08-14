@@ -4,9 +4,9 @@ Email client app, using JavaScript. Users can send, receive, reply and archive e
 ### Project Summary
 The aim of the project is to build a front-end for a single-page email client app, using HTML and JavaScript. The page makes API calls to a Django back-end in order to send and receive emails between registered users. Emails between users are stored and read from a database on the back-end.
 
-<img src="mail-inbox.png" alt="Screenshot of the project">
+<img src="staticfiles_build/static/mail-inbox.png" alt="Screenshot of the project">
 <hr>
-<img src="mailbox.png" alt="Screenshot of the project">
+<img src="staticfiles_build/static/mailbox.png" alt="Screenshot of the project">
 
 [View the full assignment description on CS50's OpenCourseWare](https://cs50.harvard.edu/web/2020/projects/3/mail/)
 
@@ -19,7 +19,11 @@ The aim of the project is to build a front-end for a single-page email client ap
 * Front-end:
   * HTML
   * JavaScript
-  * CSS (with some Bootstap Components)
+  * CSS 
+  * Bootstrap
+
+* Database
+  * PostgresSQL
 
 ### API Details:
 
