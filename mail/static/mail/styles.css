@@ -4,7 +4,6 @@ textarea {
 }
 
 .email-div {
-    display: flex;
     border-bottom: 1px solid #ced4da;
     cursor: pointer;
     padding: 10px 15px 8px 15px;
@@ -19,15 +18,12 @@ textarea {
 }
 
 #sender{
-    min-width: 30%;
 }
 
 #subject {
-    margin-left: 5px;
 }
 
 #timestamp {
-    margin-left: auto;
     color: gray;
 }
 

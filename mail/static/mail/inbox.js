@@ -130,12 +130,19 @@ function load_mailbox(mailbox) {
         // Loop emails and create a div 
         emails.forEach(email => {
           const element = document.createElement('div');
-          element.className = email.read ? "email-div read": "email-div unread";
+          element.className = `email-div d-md-flex justify-content-md-between align-items-stretch ${email.read ? 'read' : 'unread'}`;
+
+          // Parse the timestamp string into a Date object
+          const timestampDate = new Date(email.timestamp);
+
+          // Get the month and day from the date object
+          const month = timestampDate.toLocaleString('default', { month: 'short' });
+          const day = timestampDate.getDate();
 
           element.innerHTML = `
           <div id="sender"><b>${email.sender}</b></div>
           <div id="subject">${email.subject}</div>
-          <div id="timestamp">${email.timestamp}</div>
+          <div id="timestamp">${month} ${day}</div>
           `;
 
           element.addEventListener('click', () => view_email(email.id));
