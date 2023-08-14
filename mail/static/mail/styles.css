@@ -1,14 +1,14 @@
-textarea {
-    min-height: 250px;
-    margin-bottom: 5px;
-}
-
 .email-div {
     border-bottom: 1px solid #ced4da;
     cursor: pointer;
     padding: 10px 15px 8px 15px;
     border-radius: 0.25rem;
 }
+
+.email-div:hover{
+    box-shadow: .125rem .25rem whitesmoke;
+}
+
 .read {
     background: rgba(217, 221, 221, 0.3);
 }

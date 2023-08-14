@@ -142,7 +142,8 @@ function load_mailbox(mailbox) {
           element.innerHTML = `
           <div id="sender"><b>${email.sender}</b></div>
           <div id="subject">${email.subject}</div>
-          <div id="timestamp">${month} ${day}</div>
+          <div id="timestamp" class="d-lg-none">${month} ${day}</div>
+          <div id="timestamp" class="d-none d-lg-block">${email.timestamp}</div>
           `;
 
           element.addEventListener('click', () => view_email(email.id));
