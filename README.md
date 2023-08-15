@@ -6,7 +6,7 @@ MailBox is an email client web application built using JavaScript, Django, HTML,
 
 The goal of this project is to create a user-friendly email client interface that interacts with a Django back-end. This interface enables users to send and receive emails, which are stored in a database on the server. Users can also archive and mark emails as read or unread.
 
-![Screenshot](staticfiles_build/static/mailbox.png)
+![Screenshot](readme_img/mailbox.png)
 
 To learn more about the project, refer to the [assignment description on CS50's OpenCourseWare](https://cs50.harvard.edu/web/2020/projects/3/mail/).
 
@@ -65,5 +65,5 @@ To run the application locally:
 
 ## Screenshots
 
-![Inbox Screenshot](staticfiles_build/static/mail-inbox.png)
-![Mailbox Screenshot](staticfiles_build/static/mailbox.png)
+![Inbox Screenshot](readme_img/mail-inbox.png)
+![Mailbox Screenshot](readme_img/static/mailbox.png)
