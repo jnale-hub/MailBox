@@ -106,8 +106,6 @@ function view_email(id) {
 }
 
 function load_mailbox(mailbox) {
-  // Show the loading message while fetching data
-  document.querySelector('#emails-view').innerHTML = '<p>Fetching your emails...</p>';
 
   // Show the mailbox and hide other views
   document.querySelector('#emails-view').style.display = 'block';
@@ -118,11 +116,14 @@ function load_mailbox(mailbox) {
   // Show the mailbox name
   document.querySelector('#emails-view').innerHTML += `<h3>${mailbox.charAt(0).toUpperCase() + mailbox.slice(1)}</h3>`;
 
+  const loading = document.createElement('div');
+  loading.innerHTML = '<p>Fetching your emails...</p>';
+
   fetch(`/emails/${mailbox}`)
     .then(response => response.json())
     .then(emails => {
       // Clear the loading message
-      document.querySelector('#emails-view').innerHTML = '';
+      loading.innerHTML = '';
 
       // Check if there are any emails to display
       if (emails.length === 0) {
