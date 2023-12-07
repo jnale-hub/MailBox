@@ -106,7 +106,9 @@ function view_email(id) {
 }
 
 function load_mailbox(mailbox) {
-  
+  // Show the loading message while fetching data
+  document.querySelector('#emails-view').innerHTML = '<p>Fetching your emails...</p>';
+
   // Show the mailbox and hide other views
   document.querySelector('#emails-view').style.display = 'block';
   document.querySelector('#compose-view').style.display = 'none';
@@ -114,11 +116,13 @@ function load_mailbox(mailbox) {
   document.querySelector('#body-view').style.display = 'none';
 
   // Show the mailbox name
-  document.querySelector('#emails-view').innerHTML = `<h3>${mailbox.charAt(0).toUpperCase() + mailbox.slice(1)}</h3>`;
- 
+  document.querySelector('#emails-view').innerHTML += `<h3>${mailbox.charAt(0).toUpperCase() + mailbox.slice(1)}</h3>`;
+
   fetch(`/emails/${mailbox}`)
-  .then(response => response.json())
-  .then(emails => {
+    .then(response => response.json())
+    .then(emails => {
+      // Clear the loading message
+      document.querySelector('#emails-view').innerHTML = '';
 
       // Check if there are any emails to display
       if (emails.length === 0) {
@@ -126,7 +130,6 @@ function load_mailbox(mailbox) {
         element.innerHTML = 'No available mail.';
         document.querySelector('#emails-view').appendChild(element);
       } else {
-
         // Loop emails and create a div 
         emails.forEach(email => {
           const element = document.createElement('div');
@@ -140,10 +143,10 @@ function load_mailbox(mailbox) {
           const day = timestampDate.getDate();
 
           element.innerHTML = `
-          <div id="sender"><b>${email.sender}</b></div>
-          <div id="subject">${email.subject}</div>
-          <div id="timestamp" class="d-lg-none">${month} ${day}</div>
-          <div id="timestamp" class="d-none d-lg-block">${email.timestamp}</div>
+            <div id="sender"><b>${email.sender}</b></div>
+            <div id="subject">${email.subject}</div>
+            <div id="timestamp" class="d-lg-none">${month} ${day}</div>
+            <div id="timestamp" class="d-none d-lg-block">${email.timestamp}</div>
           `;
 
           element.addEventListener('click', () => view_email(email.id));
@@ -151,7 +154,11 @@ function load_mailbox(mailbox) {
           document.querySelector('#emails-view').append(element);
         });
       }
-  });
+    })
+    .catch(error => {
+      // Handle errors, e.g., display an error message
+      document.querySelector('#emails-view').innerHTML = `<p>Error: ${error.message}</p>`;
+    });
 }
 
 
