@@ -66,4 +66,4 @@ To run the application locally:
 ## Screenshots
 
 ![Inbox Screenshot](readme_img/mail-inbox.png)
-![Mailbox Screenshot](readme_img/static/mailbox.png)
+![Mailbox Screenshot](readme_img/mailbox.png)
