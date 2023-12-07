@@ -118,6 +118,7 @@ function load_mailbox(mailbox) {
   
   const loading = document.createElement('div');
   loading.innerHTML = '<p>Fetching your emails...</p>';
+  document.querySelector('#emails-view').appendChild(loading);
 
   fetch(`/emails/${mailbox}`)
     .then(response => response.json())
